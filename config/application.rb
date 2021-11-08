@@ -18,5 +18,13 @@ module ExchangeSystem
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.generators do |g|
+      g.test_framework  :rspec, fixture: false
+      g.helper_specs    false
+      g.fixture_replacement :factory_bot
+      g.javascripts false
+      g.stylesheets false
+      g.helpers false
+    end
   end
 end
