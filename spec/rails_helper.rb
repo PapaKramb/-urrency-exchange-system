@@ -7,8 +7,8 @@ require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'spec_helper'
 require 'rspec/rails'
-require "action_policy/rspec/dsl"
-require 'vcr'
+# require "action_policy/rspec/dsl"
+# require 'vcr'
 # require "view_component/test_helpers"
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -87,14 +87,14 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-  config.include(ViewSpecHelper, type: :view)
+  # config.include(ViewSpecHelper, type: :view)
   config.before(:each, type: :view) { initialize_view_helpers(view) }
 
   # configuring vcr
-  VCR.configure do |c|
-    # directory for VCR cassettes
-    c.cassette_library_dir = "spec/vcr"
-    # hooking into webmock requests
-    c.hook_into :webmock
-  end
+  # VCR.configure do |c|
+  #   # directory for VCR cassettes
+  #   c.cassette_library_dir = "spec/vcr"
+  #   # hooking into webmock requests
+  #   c.hook_into :webmock
+  # end
 end
