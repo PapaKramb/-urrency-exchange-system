@@ -42,3 +42,4 @@ config/database.yml
 *.sql
 /spec/examples.txt
 deprecation_stream
+config/credentials.yml.enc
