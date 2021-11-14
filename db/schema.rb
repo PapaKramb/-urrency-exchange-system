@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2021_11_13_015109) do
   create_table "accounts", force: :cascade do |t|
     t.float "balance"
     t.bigint "user_id", null: false
-    t.bigint "account_id", null: false
+    t.bigint "currency_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["account_id"], name: "index_accounts_on_account_id"
+    t.index ["currency_id"], name: "index_accounts_on_currency_id"
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
@@ -45,6 +45,6 @@ ActiveRecord::Schema.define(version: 2021_11_13_015109) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "accounts", "accounts"
+  add_foreign_key "accounts", "currencies"
   add_foreign_key "accounts", "users"
 end
