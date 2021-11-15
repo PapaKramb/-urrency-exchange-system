@@ -5,5 +5,8 @@ Rails.application.routes.draw do
   
   authenticate :user do
     resources :currencies
+    resource :users do
+      resources :accounts
+    end
   end
 end
